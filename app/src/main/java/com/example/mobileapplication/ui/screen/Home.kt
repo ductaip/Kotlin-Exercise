@@ -22,7 +22,7 @@ import com.example.mobileapplication.R
 import com.example.mobileapplication.ui.theme.AppTheme
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onNavigateToEmailInput: () -> Unit, onNavigateToForm: () -> Unit) {
     Scaffold(
         topBar = {
             Row(
@@ -86,6 +86,15 @@ fun HomeScreen() {
                 fontSize = 16.sp,
                 color = Color.Gray
             )
+
+            // Button to navigate to Email Input Screen
+            Button(onClick = onNavigateToEmailInput) {
+                Text("Go to Email Input")
+            }
+
+            Button(onClick = onNavigateToForm) {
+                Text("Go to Form Input")
+            }
         }
     }
 }
@@ -94,6 +103,6 @@ fun HomeScreen() {
 @Composable
 fun ProfileScreenPreview() {
     AppTheme {
-        HomeScreen()
+        HomeScreen(onNavigateToEmailInput = {}, onNavigateToForm = {})
     }
 }
